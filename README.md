@@ -111,7 +111,9 @@ public class MvcApplication {
 
 ### HomeController.java (Controller):
 
-package com.example.mvc;
+```
+
+package com.example.exp2;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -122,23 +124,65 @@ public class HomeController {
 
     @GetMapping("/")
     public String homePage(Model model) {
-        model.addAttribute("message", "Welcome to Spring Boot MVC!");
-        return "index";  // refers to index.html in templates folder
+
+        model.addAttribute("message",
+                "Welcome to Spring Boot MVC!");
+
+        model.addAttribute("name", "Harini N");
+
+        model.addAttribute("course",
+                "Computer Science Engineering");
+
+        return "index";
     }
 }
+```
 ### index.html (View – inside src/main/resources/templates/):
+
+```
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Spring MVC</title>
+    <title>Spring Boot MVC</title>
 </head>
+
 <body>
-    <h1 th:text="${message}">Default Message</h1>
+
+<h1 th:text="${message}">
+    Default Message
+</h1>
+
+<h2>Student Details</h2>
+
+<p>
+    Name:
+    <span th:text="${name}"></span>
+</p>
+
+<p>
+    Course:
+    <span th:text="${course}"></span>
+</p>
+
+<h3>
+    Spring Boot MVC Application Successfully Executed!
+</h3>
+
 </body>
 </html>
+```
+### Output :
+
+<img width="1270" height="966" alt="image" src="https://github.com/user-attachments/assets/5b126da7-13a3-4d31-95a0-6b28c3c045c0" />
+
 
 ### application.properties:
  server.port=8081
 
+### Result :
 
+Thus, the Simple Spring Boot MVC Application was successfully developed using Spring Boot, Java, and Thymeleaf. The Controller handled HTTP GET requests, the Model passed dynamic data to the View, and Thymeleaf displayed the information on the HTML page.
+
+The application was tested successfully in the web browser at http://localhost:8080/.
